@@ -1,9 +1,13 @@
+/**
+ * Hook customizado para persistência e manipulação do histórico de análises de prompt.
+ * @returns { database, saveToDatabase, clearHistory }
+ */
 import { useState, useEffect } from 'react';
 
 const STORAGE_KEY = 'promptAnalyzerDB';
 const MAX_HISTORY = 50;
 
-export default function usePromptDB() {
+export default function usePromptDb() {
   const [database, setDatabase] = useState({
     analyses: [],
     stats: {

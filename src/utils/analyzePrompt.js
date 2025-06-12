@@ -1,7 +1,15 @@
-// Funções de análise e geração de sugestões
+/**
+ * Funções utilitárias para análise de prompts e geração de sugestões inteligentes.
+ * Cada função retorna uma métrica de qualidade do prompt.
+ */
 
 const MAX_HISTORY = 50;
 
+/**
+ * Avalia a clareza do texto do prompt.
+ * @param {string} text
+ * @returns {number}
+ */
 function analyzeClareza(text) {
   const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
   const avgWordsPerSentence = sentences.reduce((acc, s) => acc + s.trim().split(' ').length, 0) / sentences.length || 0;
@@ -16,6 +24,11 @@ function analyzeClareza(text) {
   return Math.min(100, score);
 }
 
+/**
+ * Avalia o contexto do prompt.
+ * @param {string} text
+ * @returns {number}
+ */
 function analyzeContexto(text) {
   const contextIndicators = ['contexto', 'cenário', 'situação', 'público', 'objetivo', 'meta', 'propósito', 'quando', 'onde', 'como', 'por que', 'para que'];
   const foundIndicators = contextIndicators.filter(indicator => text.toLowerCase().includes(indicator)).length;
@@ -29,6 +42,11 @@ function analyzeContexto(text) {
   return Math.min(100, score);
 }
 
+/**
+ * Avalia o comprimento do prompt.
+ * @param {string} text
+ * @returns {number}
+ */
 function analyzeComprimento(text) {
   const words = text.trim().split(/\s+/).length;
   const tokens = Math.ceil(words * 1.3);
@@ -40,6 +58,11 @@ function analyzeComprimento(text) {
   return 40;
 }
 
+/**
+ * Avalia o foco do prompt.
+ * @param {string} text
+ * @returns {number}
+ */
 function analyzeFoco(text) {
   const actionVerbs = ['crie', 'gere', 'faça', 'escreva', 'desenvolva', 'analise', 'explique', 'liste', 'descreva', 'compare', 'sugira', 'recomende', 'elabore', 'construa'];
   const foundVerbs = actionVerbs.filter(verb => text.toLowerCase().includes(verb)).length;
@@ -53,11 +76,16 @@ function analyzeFoco(text) {
   return Math.min(100, score);
 }
 
+/**
+ * Detecta o tom predominante do prompt.
+ * @param {string} text
+ * @returns {{tom: string, score: number}}
+ */
 function analyzeTom(text) {
   const patterns = {
     objetivo: /\b(analise|compare|liste|descreva|explique|defina|identifique)\b/i,
     persuasivo: /\b(convença|persuada|argumente|defenda|justifique|prove)\b/i,
-    interrogativo: /\?/, 
+    interrogativo: /\?/,
     criativo: /\b(crie|imagine|invente|inove|original|criativo|único)\b/i,
     técnico: /\b(implemente|desenvolva|code|programa|algoritmo|função)\b/i,
     educativo: /\b(ensine|explique|demonstre|tutorial|passo a passo)\b/i
@@ -71,6 +99,11 @@ function analyzeTom(text) {
   return { tom: 'Neutro', score: 60 };
 }
 
+/**
+ * Gera sugestões de melhoria baseadas nas métricas.
+ * @param {object} metrics
+ * @returns {Array}
+ */
 function generateSuggestions(metrics) {
   const suggestions = [];
   if (metrics.clareza < 70) {
@@ -111,6 +144,11 @@ function generateSuggestions(metrics) {
   return suggestions;
 }
 
+/**
+ * Função principal para analisar um prompt e retornar análise completa.
+ * @param {string} prompt
+ * @returns {Promise<object|null>}
+ */
 export async function analyzePrompt(prompt) {
   if (!prompt.trim()) return null;
   await new Promise(resolve => setTimeout(resolve, 1200));
