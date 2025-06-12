@@ -1,23 +1,27 @@
+// Componente para exibir uma métrica individual do prompt
 import React from 'react';
 import { CheckCircle, Info, FileText, Target, AlertCircle } from 'lucide-react';
 
-const icons = {
-  clareza: CheckCircle,
-  contexto: Info,
-  comprimento: FileText,
-  foco: Target,
-  tom: AlertCircle
-};
-
-const colors = {
-  clareza: 'text-blue-500',
-  contexto: 'text-green-500',
-  comprimento: 'text-purple-500',
-  foco: 'text-orange-500',
-  tom: 'text-red-500'
-};
-
+/**
+ * Exibe uma métrica (clareza, contexto, etc) com barra de progresso.
+ */
 export default function MetricCard({ title, score, metric, subtitle }) {
+  const icons = {
+    clareza: CheckCircle,
+    contexto: Info,
+    comprimento: FileText,
+    foco: Target,
+    tom: AlertCircle
+  };
+
+  const colors = {
+    clareza: 'text-blue-500',
+    contexto: 'text-green-500',
+    comprimento: 'text-purple-500',
+    foco: 'text-orange-500',
+    tom: 'text-red-500'
+  };
+
   const Icon = icons[metric] || CheckCircle;
   const color = colors[metric] || 'text-blue-500';
   return (

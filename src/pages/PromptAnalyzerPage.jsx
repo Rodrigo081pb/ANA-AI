@@ -1,3 +1,4 @@
+// Página principal do Prompt Analyzer Pro
 import React, { useState } from 'react';
 import AnalyzeTab from '../components/AnalyzeTab';
 import HistoryTab from '../components/HistoryTab';
@@ -5,6 +6,9 @@ import DashboardTab from '../components/DashboardTab';
 import Navbar from '../components/Navbar';
 import usePromptDb from '../hooks/usePromptDb';
 
+/**
+ * Página principal que gerencia as abas e o banco de dados local.
+ */
 export default function PromptAnalyzerPage() {
   const [activeTab, setActiveTab] = useState('analyze');
   const db = usePromptDb();

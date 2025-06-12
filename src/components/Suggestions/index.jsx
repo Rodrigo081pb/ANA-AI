@@ -1,6 +1,10 @@
+// Componente para exibir sugestões inteligentes de melhoria
 import React from 'react';
 import { TrendingUp } from 'lucide-react';
 
+/**
+ * Exibe sugestões de melhoria baseadas nas métricas do prompt.
+ */
 export default function Suggestions({ suggestions }) {
   if (!suggestions || suggestions.length === 0) return null;
   return (

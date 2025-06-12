@@ -1,6 +1,10 @@
+// Componente responsável pelo dashboard de KPIs e gráfico
 import React from 'react';
-import { BarChart3, Radar, TrendingUp, CheckCircle, Clock } from 'lucide-react';
+import { BarChart3, TrendingUp, CheckCircle, Clock } from 'lucide-react';
 
+/**
+ * Exibe KPIs e gráfico de barras do histórico de análises.
+ */
 export default function DashboardTab({ db }) {
   const { stats, analyses } = db.database;
   // KPIs

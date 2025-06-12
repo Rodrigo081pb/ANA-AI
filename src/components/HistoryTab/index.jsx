@@ -1,6 +1,10 @@
+// Componente responsável pelo histórico de análises
 import React, { useState } from 'react';
 import { History, Trash2 } from 'lucide-react';
 
+/**
+ * Exibe o histórico de análises realizadas, com filtros e ordenação.
+ */
 export default function HistoryTab({ db }) {
   const [filterScore, setFilterScore] = useState('all');
   const [sortBy, setSortBy] = useState('recent');

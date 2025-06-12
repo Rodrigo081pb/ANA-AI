@@ -1,6 +1,7 @@
+// Componente de navegação principal do app
 import React from 'react';
 import { Brain, History, BarChart3, Sun, Moon } from 'lucide-react';
-import logo from '../assets/logo.svg';
+import logo from '../../assets/logo.svg';
 
 const tabs = [
 	{ id: 'analyze', label: 'Analisar', icon: Brain },
@@ -8,6 +9,9 @@ const tabs = [
 	{ id: 'dashboard', label: 'Dashboard', icon: BarChart3 },
 ];
 
+/**
+ * Navbar fixa com tabs e toggle de dark mode.
+ */
 export default function Navbar({ activeTab, setActiveTab }) {
 	// Botão global de modo escuro
 	const [dark, setDark] = React.useState(

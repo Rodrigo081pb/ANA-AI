@@ -1,9 +1,13 @@
+// Componente responsável pela análise de prompts
 import React, { useState, useRef } from 'react';
 import { X, ClipboardPaste, FileText } from 'lucide-react';
-import { analyzePrompt } from '../utils/analyzePrompt';
-import MetricCard from './MetricCard';
-import Suggestions from './Suggestions';
+import { analyzePrompt } from '../../utils/analyzePrompt';
+import MetricCard from '../MetricCard';
+import Suggestions from '../Suggestions';
 
+/**
+ * Componente de análise de prompt com UI e integração com banco local.
+ */
 export default function AnalyzeTab({ db }) {
   const [prompt, setPrompt] = useState('');
   const [analysis, setAnalysis] = useState(null);
