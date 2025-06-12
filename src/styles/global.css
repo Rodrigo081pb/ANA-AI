@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  min-height: 100%;
+}
+body {
+  min-height: 100vh;
+  background: #F8F9FA;
+  /* Sutil textura de grain */
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="1" fill="%23E5E7EB" fill-opacity="0.08"/><circle cx="60" cy="40" r="1.5" fill="%23E5E7EB" fill-opacity="0.07"/><circle cx="80" cy="80" r="1" fill="%23E5E7EB" fill-opacity="0.06"/><circle cx="30" cy="70" r="1.2" fill="%23E5E7EB" fill-opacity="0.07"/></svg>');
+  background-size: 200px 200px;
+}
+html.dark body {
+  background: #181A20;
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="1" fill="%23222A36" fill-opacity="0.13"/><circle cx="60" cy="40" r="1.5" fill="%23222A36" fill-opacity="0.10"/><circle cx="80" cy="80" r="1" fill="%23222A36" fill-opacity="0.09"/><circle cx="30" cy="70" r="1.2" fill="%23222A36" fill-opacity="0.10"/></svg>');
+  background-size: 200px 200px;
+}
