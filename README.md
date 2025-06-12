@@ -38,4 +38,4 @@ Pronto para deploy no Vercel, Netlify ou GitHub Pages.
 
 ---
 
-Desenvolvido por Ellin & Copilot 🤖
+Desenvolvido por Rodrigo
